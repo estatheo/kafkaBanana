@@ -22,7 +22,7 @@ namespace KafkaBananaStore
                 var stringValue = "";
                 for (int i=0; i<100; ++i){
                     stringValue += "🍌";
-                    producer.BeginProduce("banana-topic", new Message<Null, string> { Value = stringValue}, handler);
+                    producer.ProduceAsync("banana-topic", new Message<Null, string> { Value = stringValue});
                 }
 
                 producer.Flush(TimeSpan.FromSeconds(10));
